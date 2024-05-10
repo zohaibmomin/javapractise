@@ -16,7 +16,8 @@ public class SumAvg2DArray {
         }
         int rows = arr.length;
         int cols = arr[0].length; // assumption is homegenous array
-        return sum2DArray(arr)/(rows*cols);
+        double deno = rows*cols;
+        return sum2DArray(arr)/(deno);
     }
 
     private static int sum2DArray(int[][] arr) {
