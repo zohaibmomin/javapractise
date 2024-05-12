@@ -9,8 +9,33 @@ public class RecursiveFactorial {
         int num = input.nextInt();
 
         RecursiveFactorial rcf = new RecursiveFactorial();
-        int fact = rcf.factorialRecursive(num);
-        System.out.println("Factorial is : " + fact);
+//        int fact = rcf.factorialRecursive(num);
+//        System.out.println("Factorial is : " + fact);
+
+
+        rcf.printFiboSeries(num);
+        rcf.printFiboNth(num);
+
+    }
+
+    private void printFiboNth(int num) {
+       int fiboVal =  this.fibo(num);
+       System.out.println("\n Fibonacci value for n = " + num + " is := " + fiboVal);
+    }
+
+    private void printFiboSeries(int num) {
+        System.out.println("Fibonacci series upto num " + num);
+        for (int i = 0; i <= num; i++) {
+            int fibo = this.fibo(i);
+            System.out.print(fibo + " ");
+        }
+    }
+
+    private int fibo(int n) {
+       if(n == 0)return 0;
+       if(n ==1)return 1;
+
+       return fibo(n - 1) + fibo(n - 2);
     }
 
     private int factorialRecursive(int num) {
@@ -20,4 +45,6 @@ public class RecursiveFactorial {
 
         return num * factorialRecursive(num - 1);
     }
+
+
 }
