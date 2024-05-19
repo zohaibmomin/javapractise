@@ -1,6 +1,6 @@
 package com.example.inheritance;
 
-public class Vehicle {
+public abstract class Vehicle implements Transport{
     private int noOfTyres;
     public String color;
 
