@@ -1,4 +1,4 @@
-package in.com.multithreading;
+package in.com.multithreading.threadClass;
 
 public class TestingMultithreading {
     public static void main(String[] args) {
