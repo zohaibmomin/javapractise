@@ -16,7 +16,7 @@ public class CalFactorial implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         return factorial(number);
     }
 
