@@ -6,7 +6,7 @@ import java.util.function.BinaryOperator;
 
 public class TestingReduce {
     public static void main(String[] args) {
-        List<Integer> numbers = List.of(1,4,5,6,3,10,33);
+        List<Integer> numbers = List.of(1,4,99,5,6,3,10,33);
 
         System.out.println("Reduce sample");
         int result = numbers.stream().reduce(0, new BinaryOperator<Integer>() {
@@ -21,6 +21,10 @@ public class TestingReduce {
 
         int finalVal = numbers.stream().reduce(0,(num1,num2)->num1+num2);
         System.out.printf("Value is %d", finalVal);
+
+        int maxVal = numbers.stream().reduce(0,(num1,num2)->Math.max(num1,num2));
+        System.out.printf("Value is %d", maxVal);
+
 
     }
 }
