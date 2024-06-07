@@ -1,4 +1,4 @@
-package filterandreduce;
+package com.practise.filterandreduce;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,7 +1,6 @@
-package filterandreduce;
+package com.practise.filterandreduce;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.BinaryOperator;
 
 public class TestingReduce {
