@@ -1,14 +1,11 @@
 package com.easy;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.IntStream;
 
 public class sortedSquareArray {
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5,6};
-        System.out.printf("Sqaures are %s ",sortedSquaredArray(arr).toString());
+        System.out.printf("Squares are %s ",sortedSquaredArray(arr).toString());
 //        Arrays.stream(arr)
 //                .map(num->num*num)
 //                .forEach(s-> System.out.printf(" %s",s));
