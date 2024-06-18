@@ -12,6 +12,7 @@ import java.util.List;
 // DELETE /employee{id}
 
 @RestController
+@RequestMapping(path = "/employees")
 public class EmployeeController {
 
     private final EmployeeService employeeService;
@@ -20,17 +21,17 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping(path = "/employees/{id}")
+    @GetMapping(path = "/{id}")
     public EmployeeDTO getEmployeeData(@PathVariable("id") Long eid) {
         return employeeService.getEmployeeById(eid);
     }
 
-    @GetMapping(path = "/employees")
+    @GetMapping
     public List<EmployeeDTO> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
-    @PostMapping(path = "/employees")
+    @PostMapping
     public EmployeeDTO createNewEmployee(@RequestBody EmployeeDTO employeeDTO) {
         return employeeService.createNewEmployee(employeeDTO);
     }
