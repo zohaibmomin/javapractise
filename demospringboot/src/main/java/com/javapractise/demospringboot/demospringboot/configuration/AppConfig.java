@@ -3,6 +3,7 @@ package com.javapractise.demospringboot.demospringboot.configuration;
 import com.javapractise.demospringboot.demospringboot.DB;
 import com.javapractise.demospringboot.demospringboot.DevDB;
 import com.javapractise.demospringboot.demospringboot.ProdDB;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,5 +20,10 @@ public class AppConfig {
     @ConditionalOnProperty(name = "env", havingValue = "DEV")
     public DB getDevData(){
         return new DevDB();
+    }
+
+    @Bean
+    public ModelMapper getModelMapper(){
+        return new ModelMapper();
     }
 }
