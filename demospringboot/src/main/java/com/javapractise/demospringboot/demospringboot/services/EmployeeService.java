@@ -37,5 +37,14 @@ public class EmployeeService {
         List<EmployeeDTO> emp = employees.stream().map(entity -> new EmployeeDTO(entity.getId(), entity.getName(), entity.getDoj())).toList();
         return emp;
     }
+
+    public boolean deleteEmployeeById(Long empId) {
+        boolean isPresent = employeeRepository.existsById(empId);
+        if(isPresent){
+            employeeRepository.deleteById(empId);
+            return true;
+        }
+        return false;
+    }
 }
 
