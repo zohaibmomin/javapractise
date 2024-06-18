@@ -1,10 +1,10 @@
-package com.javapractise.ZohaibSpringBoot.zohaib_spring_boot;
+package com.javapractise.demospringboot.demospringboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ZohaibSpringBootApplicationTests {
+class DemospringbootApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -8,10 +8,10 @@
 		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.javapractise.ZohaibSpringBoot</groupId>
-	<artifactId>zohaib-spring-boot</artifactId>
+	<groupId>com.javapractise.demospringboot</groupId>
+	<artifactId>demospringboot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>zohaib-spring-boot</name>
+	<name>demospringboot</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>21</java.version>
