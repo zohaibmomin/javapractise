@@ -1,13 +1,10 @@
 package com.javapractise.demospringboot.demospringboot.controllers;
 
 import com.javapractise.demospringboot.demospringboot.dto.EmployeeDTO;
-import jakarta.websocket.server.PathParam;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import com.javapractise.demospringboot.demospringboot.services.EmployeeService;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.List;
 
 //Operations
 // GET /employees
@@ -17,24 +14,25 @@ import java.util.ArrayList;
 @RestController
 public class EmployeeController {
 
+    private final EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
     @GetMapping(path = "/employees/{id}")
-        public EmployeeDTO getEmployeeData(@PathVariable("id") Long eid) {
-        return new EmployeeDTO(eid,
-                "Zohaib-" + eid,
-                LocalDate.now());
+    public EmployeeDTO getEmployeeData(@PathVariable("id") Long eid) {
+        return employeeService.getEmployeeById(eid);
     }
 
     @GetMapping(path = "/employees")
-    public ArrayList<EmployeeDTO> getEmployee(@PathParam("sortBy") String sortBy,
-                                              @PathParam("limit") int limit) {
-        ArrayList<EmployeeDTO> employees = new ArrayList<>();
-        employees.add(new EmployeeDTO(123L,
-                "Zohaib-" + sortBy + "-" + limit,
-                LocalDate.now()));
-        employees.add(new EmployeeDTO(222L,
-                "Nazia-" + sortBy + "-" + limit,
-                LocalDate.of(2024, 1, 1)));
+    public List<EmployeeDTO> getAllEmployees() {
+        return employeeService.getAllEmployees();
+    }
 
-        return employees;
+    @PostMapping(path = "/employees")
+    public EmployeeDTO createNewEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        return employeeService.createNewEmployee(employeeDTO);
     }
 }
+
