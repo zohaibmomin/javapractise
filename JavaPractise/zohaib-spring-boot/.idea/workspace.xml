@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b9ee2d0-c475-4e8c-87d2-16dc3d9d1dc2" name="Changes" comment="Springboot Startup - Dependencies - Lambok, Spring Web, Java 21, Maven , Spring 3.3.0">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javapractise/ZohaibSpringBoot/zohaib_spring_boot/ZohaibSpringBootApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/javapractise/ZohaibSpringBoot/zohaib_spring_boot/ZohaibSpringBootApplicationTests.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../demospringboot/src/main/java/com/javapractise/demospringboot/demospringboot/DB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../demospringboot/src/main/java/com/javapractise/demospringboot/demospringboot/ProdDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demospringboot/src/main/java/com/javapractise/demospringboot/demospringboot/DevDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../demospringboot/src/main/java/com/javapractise/demospringboot/demospringboot/DevDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demospringboot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../demospringboot/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
