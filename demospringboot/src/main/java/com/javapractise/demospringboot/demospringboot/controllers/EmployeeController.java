@@ -21,6 +21,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+
     @GetMapping(path = "/{id}")
     public EmployeeDTO getEmployeeData(@PathVariable("id") Long eid) {
         return employeeService.getEmployeeById(eid);
@@ -40,5 +41,12 @@ public class EmployeeController {
     public boolean deleteEmployeeById(@PathVariable("id") Long empId){
         return employeeService.deleteEmployeeById(empId);
     }
+
+    @PutMapping(path = "/{id}")
+    public EmployeeDTO updateEmployeeById(@PathVariable("id") Long empId,
+                                          @RequestBody EmployeeDTO employeeDTO){
+        return employeeService.updateEmployeeById(empId,employeeDTO);
+    }
+
 }
 

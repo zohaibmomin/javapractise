@@ -54,5 +54,19 @@ public class EmployeeService {
         }
         return false;
     }
+
+    public EmployeeDTO updateEmployeeById(Long empId, EmployeeDTO employeeDTO) {
+        EmployeeEntity entity = modelMapper.map(employeeDTO,EmployeeEntity.class);
+        EmployeeEntity f = employeeRepository.findById(empId)
+                .map(employee -> {
+                    employee.setName(employeeDTO.getName());
+                    employee.setDoj(employeeDTO.getDoj());
+                    return employeeRepository.save(employee);
+                })
+                .orElseGet(() -> {
+                    return employeeRepository.save(entity);
+                });
+        return modelMapper.map(f,EmployeeDTO.class);
+    }
 }
 
