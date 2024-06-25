@@ -6,10 +6,10 @@
 
     <!-- bean definitions here -->
     <bean name="networkbean" class="com.beans.Network"></bean>
-    <bean name="phone" class="com.beans.Phone">
+    <bean name="phone" class="com.beans.Phone" autowire="constructor">
 <!--        <constructor-arg value="12"></constructor-arg>-->
 <!--        <constructor-arg value="12.22"></constructor-arg>-->
-        <property name="network" ref="networkbean"/>
+<!--        <property name="network" ref="networkbean"/>-->
     </bean>
 
 </beans>
