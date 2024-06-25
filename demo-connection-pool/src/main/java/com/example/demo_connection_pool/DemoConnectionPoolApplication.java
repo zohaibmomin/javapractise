@@ -27,6 +27,8 @@ public class DemoConnectionPoolApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("App is started");
 
+        jdbcTemplate.update("insert into Customers Values(20,'David');");
+        System.out.println("Data added");
         List<Map<String, Object>> result = jdbcTemplate.queryForList("select * from Customers;");
         result.forEach(System.out::println);
         //output
