@@ -7,7 +7,8 @@
     <!-- bean definitions here -->
     <bean name="networkbean" class="com.beans.Network"></bean>
     <bean name="phone" class="com.beans.Phone">
-        <constructor-arg ref="networkbean"></constructor-arg>
+        <constructor-arg value="12"></constructor-arg>
+        <constructor-arg value="12.22"></constructor-arg>
     </bean>
 
 </beans>

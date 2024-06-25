@@ -28,7 +28,7 @@ public class DemospringbootApplication implements CommandLineRunner {
 //        System.out.println("Manual XML Bean definition - " + mybean);
 
 		Phone phoneBean = applicationContext.getBean("phone", Phone.class);
-        System.out.println("Manual XML Bean definition - " + phoneBean.network);
+        System.out.println("Main class:: Manual XML Bean definition - " + phoneBean.network);
     }
 
     @Override
