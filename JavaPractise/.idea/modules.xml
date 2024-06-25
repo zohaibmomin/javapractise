@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CodingChallenges/CodingChallenges.iml" filepath="$PROJECT_DIR$/CodingChallenges/CodingChallenges.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CollectionsGenerics/CollectionsGenerics.iml" filepath="$PROJECT_DIR$/CollectionsGenerics/CollectionsGenerics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FirstProject/FirstProject.iml" filepath="$PROJECT_DIR$/FirstProject/FirstProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaPractise.iml" filepath="$PROJECT_DIR$/JavaPractise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LambdaExpressions/LambdaExpressions.iml" filepath="$PROJECT_DIR$/LambdaExpressions/LambdaExpressions.iml" />
+    </modules>
+  </component>
+</project>
