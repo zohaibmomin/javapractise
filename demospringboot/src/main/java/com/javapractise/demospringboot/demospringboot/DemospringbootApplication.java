@@ -17,18 +17,19 @@ public class DemospringbootApplication implements CommandLineRunner {
     DB db;
 
     public static void main(String[] args) {
-//		var context = SpringApplication.run(DemospringbootApplication.class, args);
+		var context = SpringApplication.run(DemospringbootApplication.class, args);
+        System.out.println(context.getBean(Phone.class));
 //		Battery batteryBean = context.getBean(Battery.class);
 //		System.out.println(batteryBean);
 //		context.close();
 
         //manually define spring bean
-        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("config.xml");
-        Network mybean = (Network) applicationContext.getBean("networkbean");
-        System.out.println("Main class:: mybean:: Manual XML Bean definition - " + mybean);
-
-		Phone phoneBean = applicationContext.getBean("phone", Phone.class);
-        System.out.println("Main class:: phoneBean:: Manual XML Bean definition - " + phoneBean);
+//        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("config.xml");
+//        Network mybean = (Network) applicationContext.getBean("networkbean");
+//        System.out.println("Main class:: mybean:: Manual XML Bean definition - " + mybean);
+//
+//		Phone phoneBean = applicationContext.getBean("phone", Phone.class);
+//        System.out.println("Main class:: phoneBean:: Manual XML Bean definition - " + phoneBean);
     }
 
     @Override

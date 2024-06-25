@@ -1,11 +1,16 @@
 package com.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Phone {
+    @Autowired
     public Network network;
 
-//    public Phone(){
-//        System.out.println("Phone default:: construct");
-//    }
+    public Phone(){
+        System.out.println("Phone default:: construct");
+    }
     public Phone(Network network) {
         System.out.println("Phone constructor..");
         this.network = network;
