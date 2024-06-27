@@ -11,7 +11,9 @@ public class Samosa {
 
     public static Samosa getSamosa() {
         if (samosa == null) {
-            samosa = new Samosa();
+            synchronized (Samosa.class){
+                samosa = new Samosa();
+            }
         }
         return samosa;
     }
