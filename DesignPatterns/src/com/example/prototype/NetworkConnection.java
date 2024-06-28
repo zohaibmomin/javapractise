@@ -49,11 +49,18 @@ public class NetworkConnection implements Cloneable {
 
     @Override
     public NetworkConnection clone() {
-        try {
+       /* try {
             NetworkConnection clone = (NetworkConnection) super.clone();
             return clone;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
+        }*/
+        //deep clone logic
+        NetworkConnection clone = new NetworkConnection();
+        clone.setNetworkIP(this.getNetworkIP());
+        for (String domain : this.getDomains()) {
+            clone.getDomains().add(domain);
         }
+        return clone;
     }
 }
