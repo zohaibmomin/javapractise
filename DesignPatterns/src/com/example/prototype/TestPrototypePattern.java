@@ -10,6 +10,8 @@ public class TestPrototypePattern {
 
         System.out.println(nw);
 
+        //we want new object but saving costs of not doing heavy operation in loadVeryImportantData
+        // simply clone it
         NetworkConnection nw2 = nw.clone();
         System.out.println(nw2);
 
