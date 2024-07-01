@@ -2,6 +2,7 @@ package com.example.iterator;
 
 import java.util.List;
 
+//custom logic for own iteration
 public class MyIteratorImpl implements MyIterator {
 
     private List<User> list;

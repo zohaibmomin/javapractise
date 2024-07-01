@@ -3,6 +3,10 @@ package com.example.iterator;
 import java.util.ArrayList;
 import java.util.List;
 
+//implementation of user with basic operations
+//addUser
+//getUser
+//getIterator
 public class UserImplementation {
     List<User> userList = new ArrayList<>();
 

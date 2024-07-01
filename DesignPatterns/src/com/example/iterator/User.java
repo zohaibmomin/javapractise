@@ -1,5 +1,5 @@
 package com.example.iterator;
-
+//User class with properties
 public class User {
     private String name;
     private String userId;
