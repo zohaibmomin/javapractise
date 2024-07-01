@@ -15,6 +15,8 @@ public class Demo {
         Subscriber neha = new Subscriber("Neha");
         youtubeChannel.subscribe(neha);
 
+        //zohaib will not get notification but neha and nazia will get
+        youtubeChannel.unsubscribe(zohaib);
         youtubeChannel.newVideoUploaded("My Vlog - June 29");
 
     }
