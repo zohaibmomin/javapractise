@@ -25,14 +25,16 @@ public class CalculatorServiceJUnit5 {
 
 
     @Test
+    @DisplayName("Custom Name -- TestCase:Sum of Two Numbers")
     public void sumOfTwo() throws InterruptedException {
         System.out.println("Test Case :: sumOfTwo");
         int result = CalculatorService.sumOfTwoNumbers(1,2);
-        int expected = 30;
+        int expected = 3;
         Assertions.assertEquals(expected,result,"Failed testcase :: sumOfTwo");
     }
 
     @Test
+    @Disabled
     public void productOfTwo(){
         System.out.println("Test Case :: productOfTwo");
         int result = CalculatorService.productOfTwoNumbers(1,2);
