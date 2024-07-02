@@ -3,7 +3,7 @@ package com.example.tests.service;
 public class CalculatorService {
 
     public static int sumOfTwoNumbers(int a, int b) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(200);
         return a + b;
     }
 
