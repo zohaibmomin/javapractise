@@ -1,9 +1,6 @@
 package com.example.tests.service;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.Date;
 
@@ -11,10 +8,10 @@ import java.util.Date;
 public class CalculatorServiceTest {
     @BeforeClass
     public static void beginning(){
-        System.out.println("Before All test cases... + " + new Date());
+        System.out.println("Before All test cases start... + " + new Date());
     }
     @Test
-    public void sumOfTwo(){
+    public void sumOfTwo() throws InterruptedException {
         int result = CalculatorService.sumOfTwoNumbers(1,2);
         int expected = 3;
         Assert.assertEquals(expected,result);
@@ -32,5 +29,9 @@ public class CalculatorServiceTest {
         int result = CalculatorService.sumOfAnyNumbers(1,2,3,4);
         int expected  =10;
         Assert.assertEquals(expected,result);
+    }
+    @AfterClass
+    public static void ending(){
+        System.out.println("After All test cases end... + " + new Date());
     }
 }

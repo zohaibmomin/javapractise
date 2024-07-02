@@ -2,7 +2,8 @@ package com.example.tests.service;
 
 public class CalculatorService {
 
-    public static int sumOfTwoNumbers(int a, int b) {
+    public static int sumOfTwoNumbers(int a, int b) throws InterruptedException {
+        Thread.sleep(2000);
         return a + b;
     }
 
