@@ -10,7 +10,7 @@ public class KafkaConfig {
     @Bean
     public NewTopic topic() {
         return TopicBuilder
-                .name("location-updates")
+                .name(AppConstants.LOCATION_UPDATE_TOPIC)
 //                .partitions(1)
 //                .replicas(1)
                 .build();
