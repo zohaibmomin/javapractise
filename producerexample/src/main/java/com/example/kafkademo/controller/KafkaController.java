@@ -21,9 +21,11 @@ public class KafkaController {
 
     @PostMapping("/update")
     public ResponseEntity<?> updateLocation() {
-        try{
-            kafkaService.updateLocation("(" + Math.round(Math.random() * 100) + "," + Math.round(Math.random() * 100) + ")");
-        }catch (Exception e){
+        try {
+            for (int i = 0; i < 1000; i++) {
+                kafkaService.updateLocation("(" + Math.round(Math.random() * i * 100) + "," + Math.round(Math.random() * i * 100) + ")");
+            }
+        } catch (Exception e) {
             return new ResponseEntity<>(Map.of("message", "Location Not Updated"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(Map.of("message", "Location Updated"), HttpStatus.OK);

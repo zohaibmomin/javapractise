@@ -13,6 +13,6 @@ public class KafkaConfig {
 
     @KafkaListener(topics = AppConstants.LOCATION_UPDATE_TOPIC, groupId = AppConstants.GROUP_ID)
     public void updateLocation(String value) {
-        this.logger.info(value);
+        this.logger.info("Location recieved :: " + value);
     }
 }
