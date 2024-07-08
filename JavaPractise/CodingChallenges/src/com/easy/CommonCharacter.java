@@ -2,7 +2,7 @@ package com.easy;
 
 import java.util.*;
 
-//https://www.algoexpert.io/questions/common-characters
+//Problem : https://www.algoexpert.io/questions/common-characters
 public class CommonCharacter {
     public static void main(String[] args) {
         String[] str = {"abc", "bcd", "cbaccd"};
