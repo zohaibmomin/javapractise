@@ -1,11 +1,15 @@
 package com.example.springSecurity.springSecurityAuth.configs;
 
+import com.example.springSecurity.springSecurityAuth.services.CustomUserDetailsService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,7 +19,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@EnableMethodSecurity
+//@EnableMethodSecurity
+@EnableWebSecurity
 public class HomeConfig {
 
     @Bean
@@ -24,8 +29,17 @@ public class HomeConfig {
     }
 
     @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userDetailsService());
+        provider.setPasswordEncoder(passwordEncoder());
+        return provider;
+
+    }
+
+    @Bean
     public UserDetailsService userDetailsService() {
-        UserDetails normalUser = User.withUsername("normal")
+        /*UserDetails normalUser = User.withUsername("normal")
                 .password(passwordEncoder().encode("abc@123"))
                 .roles("NORMAL")
                 .build();
@@ -35,8 +49,11 @@ public class HomeConfig {
                 .roles("ADMIN")
                 .build();
 
-        return new InMemoryUserDetailsManager(normalUser, adminUser);
+        return new InMemoryUserDetailsManager(normalUser, adminUser);*/
+
+        return new CustomUserDetailsService();
     }
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
@@ -44,8 +61,8 @@ public class HomeConfig {
         httpSecurity.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth ->
                         auth
-//                                requestMatchers("/home/admin").hasRole("ADMIN")
-//                                .requestMatchers("/home/normal").hasRole("NORMAL")
+                                .requestMatchers("/home/admin").hasRole("ADMIN")
+                                .requestMatchers("/home/normal").hasRole("NORMAL")
                                 .requestMatchers("/home/public")
                                 .permitAll()
                                 .anyRequest()

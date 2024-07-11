@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/home")
 public class HomeController {
 
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/admin")
     public ResponseEntity<String> adminUser() {
         return ResponseEntity.ok("Hello, I am admin user");
@@ -21,7 +21,7 @@ public class HomeController {
         return ResponseEntity.ok("Hello, I am public user");
     }
 
-    @PreAuthorize("hasRole('NORMAL')")
+//    @PreAuthorize("hasRole('NORMAL')")
     @GetMapping("/normal")
     public ResponseEntity<String> normalUser() {
         return ResponseEntity.ok("Hello, I am normal user");
