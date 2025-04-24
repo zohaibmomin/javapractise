@@ -10,25 +10,13 @@ public class MaxSubArray {
     }
 
     public static int maxSubArray(int[] nums) {
-        int left = 0;
-        int right = 1;
+        int maxSum = nums[0];
+        int currentSum = nums[0];
 
-        int maxSum = nums[left];
-        while (right < nums.length) {
-            int sum = 0;
-            for (int i = left; i <= right; i++) {
-                sum = sum + nums[i];
-            }
-            maxSum = Math.max(sum, maxSum);
-            //increase the window
-            if (right == nums.length-1) {
-                left++;
-                right = left + 1;
-            } else {
-                right++;
-            }
+        for (int i = 1; i < nums.length; i++) {
+            currentSum = Math.max(nums[i], currentSum + nums[i]);
+            maxSum = Math.max(maxSum, currentSum);
         }
-        maxSum = Math.max(maxSum, nums[nums.length - 1]);
 
         return maxSum;
     }
