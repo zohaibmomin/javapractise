@@ -41,3 +41,46 @@ public class LongestSubstring {
         return maxLength;
     }
 }
+
+/*Algorithm explanation
+* Basically you keep a window
+*
+* 1st pass - x
+* start x, end x
+* window x
+* set size 1
+*
+* 2nd pass - x y
+* start x , end y
+* window xy
+* maxlength 2 bcoz now the set size is 2
+*
+* 3rd pass - x y z
+* start x , end z
+* window xyz
+* maxLength 3 bcoz set size is 3
+*
+* 4th pass - x y z x
+* start y, end x
+* window yzx
+* maxlength same as before 3
+* Here since x exists in set then you go inside the set and remove the charAt(pos) and move the left pointer
+*
+* 5th pass -  y z x y
+* start z , end y
+* window zxy
+* maxlength same as before 3
+* Here since x exists in set then you go inside the set and remove the charAt(pos) and move the left pointer
+*
+* 6th pass - z x y z
+* start x, end z
+* window xyz
+* maxlength same as before 3
+* * Here since x exists in set then you go inside the set and remove the charAt(pos) and move the left pointer
+
+* 7th pass - xyz
+* start x , end n+1
+* Terminate
+*
+
+ * */
