@@ -18,13 +18,16 @@ public class LogTailService {
 
     private static final Logger logger = LoggerFactory.getLogger(LogTailService.class);
 
-    @Value("${log.file.path:log.txt}")
-    private String logFilePath;
-
+    private final String logFilePath;
     private long lastOffset = 0;
     private final SimpMessagingTemplate messagingTemplate;
 
     public LogTailService(SimpMessagingTemplate messagingTemplate) {
+        this("log.txt", messagingTemplate);
+    }
+
+    public LogTailService(String logFilePath, SimpMessagingTemplate messagingTemplate) {
+        this.logFilePath = logFilePath;
         this.messagingTemplate = messagingTemplate;
     }
 
