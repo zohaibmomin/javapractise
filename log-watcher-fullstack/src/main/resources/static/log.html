@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+    <style>
+        body { font-family: monospace; background: #000; color: #0f0; padding: 10px; }
+        pre { max-height: 90vh; overflow-y: auto; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+<pre id="logArea"></pre>
+<script>
+    const logArea = document.getElementById("logArea");
+
+    fetch('/log/lines')
+        .then(response => response.json())
+        .then(lines => {
+            lines.forEach(line => {
+                logArea.textContent += line + "\n";
+            });
+        });
+
+    const socket = new SockJS('/ws-log');
+    const stompClient = Stomp.over(socket);
+
+    stompClient.connect({}, function () {
+        stompClient.subscribe("/topic/log", function (msg) {
+            logArea.textContent += msg.body + "\n";
+            logArea.scrollTop = logArea.scrollHeight;
+        });
+    });
+</script>
+</body>
+</html>
