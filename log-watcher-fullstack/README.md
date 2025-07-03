@@ -1,6 +1,4 @@
-Here’s a `README.md` file for your **Log Watcher Spring Boot** project. It explains what the project does, how to run it, and includes tech stack details:
 
----
 
 ```markdown
 # 📄 Log Watcher – Real-Time Log Monitoring with Spring Boot
@@ -127,9 +125,4 @@ MIT – free to use, modify, and share.
 
 Built by [Zohaib Momin](https://www.linkedin.com/in/zohaib-momin-6346a122/)
 
-```
-
----
-
-Would you like me to create this as a `README.md` file in your project or paste it into the canvas directly?
 ```
