@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Root tag for Maven project definition -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Required POM model version -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Inherit dependency and plugin management from Spring Boot -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.3</version> <!-- Spring Boot version -->
+        <relativePath/> <!-- Looks up parent from remote repository -->
+    </parent>
+
+    <!-- Project's unique coordinates -->
+    <groupId>com.example</groupId> <!-- Organization or group name -->
+    <artifactId>log-watcher-fullstack</artifactId> <!-- Project name -->
+    <version>0.0.1-SNAPSHOT</version> <!-- Current development version -->
+
+    <!-- Metadata for documentation/tools (optional) -->
+    <name>log-watcher-fullstack</name>
+    <description>log-watcher-fullstack</description>
+    <url/> <!-- Homepage (optional, empty here) -->
+
+    <!-- License info (optional, placeholder here) -->
+    <licenses>
+        <license/>
+    </licenses>
+
+    <!-- Developer info (optional, placeholder here) -->
+    <developers>
+        <developer/>
+    </developers>
+
+    <!-- Source Control info (optional, placeholder here) -->
+    <scm>
+        <connection/>
+        <developerConnection/>
+        <tag/>
+        <url/>
+    </scm>
+
+    <!-- Project-wide properties -->
+    <properties>
+        <java.version>21</java.version> <!-- Use Java 21 -->
+    </properties>
+
+    <!-- Project dependencies -->
+    <dependencies>
+        <!-- Spring Boot for building web applications -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Spring Boot support for WebSocket messaging -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
+        <!-- Apache Commons IO: Utilities for working with files -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.16.0</version> <!-- Explicit version for compatibility -->
+        </dependency>
+
+        <!-- Spring Boot test support (JUnit, Mockito, etc.) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope> <!-- Only used for testing -->
+        </dependency>
+    </dependencies>
+
+    <!-- Build instructions -->
+    <build>
+        <plugins>
+            <!-- Plugin to package and run Spring Boot apps -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
