@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"
+            integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"
+            integrity="sha512-1QvjE7BtotQjkq8PxLeF6P46gEpBRXuskzIVgjFpekzFVF4yjRgrQvTG1MTOJ3yQgvTteKAcO7DSZI92+u/yZw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<div id="logArea" style="white-space:pre-wrap"></div>
+<script>
+//Fetch the last 10 lines on page load
+
+    const logArea = document.getElementById("logArea");
+    fetch('/logs/tail')
+        .then(response => response.json())
+        .then(lines => {
+            lines.forEach(line => {
+                logArea.textContent += line + "\n";
+            });
+        });
+
+//Real time streaming updates of updated lines
+
+// Create a WebSocket (or SockJS) connection
+const socket = new SockJS('/ws-log'); // Or 'ws://your-broker-url'
+
+// Create the STOMP client
+const stompClient = Stomp.over(socket);
+
+    stompClient.connect({},function(){
+        stompClient.subscribe("/topic/logs",function(msg){
+            logArea.textContent += msg.body + "\n";
+            logArea.scrollTop = logArea.scrollHeight;
+        });
+    });
+</script>
+</body>
+</html>

@@ -12,25 +12,31 @@
 <body>
 <pre id="logArea"></pre>
 <script>
+    // Get the log area element where we will display logs
     const logArea = document.getElementById("logArea");
 
+    // 1. Load the last 10 lines from the server when the page loads
     fetch('/log/lines')
-        .then(response => response.json())
+        .then(res => res.json()) // Convert the response to JSON (list of lines)
         .then(lines => {
-            lines.forEach(line => {
+            // Add each line to the log area
+            for (const line of lines) {
                 logArea.textContent += line + "\n";
-            });
+            }
         });
 
+    // 2. Connect to the WebSocket server using SockJS
     const socket = new SockJS('/ws-log');
-    const stompClient = Stomp.over(socket);
+    const stomp = Stomp.over(socket);
 
-    stompClient.connect({}, function () {
-        stompClient.subscribe("/topic/log", function (msg) {
-            logArea.textContent += msg.body + "\n";
-            logArea.scrollTop = logArea.scrollHeight;
+    // 3. When connected, subscribe to "/topic/log" for real-time log updates
+    stomp.connect({}, () => {
+        stomp.subscribe("/topic/log", (message) => {
+            logArea.textContent += message.body + "\n"; // Add new line to log area
+            logArea.scrollTop = logArea.scrollHeight;   // Auto-scroll to bottom
         });
     });
 </script>
+
 </body>
 </html>
