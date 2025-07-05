@@ -1,5 +1,8 @@
 package com.example.logwatcherscratch.services;
 
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -15,11 +18,18 @@ import java.util.Deque;
 import java.util.List;
 
 @Service
+@EnableScheduling
 public class LogWatcherServices {
 
     private String logFilePath = "/Users/naziamomin/Documents/logwatcherscratch/logsample.txt";
     private long offset = 0;
     private final String READ_MODE = "r";
+
+    private SimpMessagingTemplate messagingTemplate;
+
+    public LogWatcherServices(SimpMessagingTemplate messagingTemplate) {
+        this.messagingTemplate = messagingTemplate;
+    }
 
     public List<String> getLastNLines(int n) throws IOException {
         // Create a path object from the log file path
@@ -56,4 +66,19 @@ public class LogWatcherServices {
 
 
     //Logic to fetch lines realtime without page load
+
+    @Scheduled(fixedRate = 1000)
+    public void pollLogFile() throws IOException {
+        System.out.println("Called...");
+        RandomAccessFile randomAccessFile = new RandomAccessFile(logFilePath,READ_MODE);
+
+        randomAccessFile.seek(offset);
+
+        String line;
+        while ((line = randomAccessFile.readLine()) !=null){
+            messagingTemplate.convertAndSend("/topic/logs",line);
+            System.out.println(line);
+        }
+        offset = (randomAccessFile.getFilePointer());
+    }
 }

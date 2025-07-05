@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LogWatcher Stack</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"
+            integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"
+            integrity="sha512-1QvjE7BtotQjkq8PxLeF6P46gEpBRXuskzIVgjFpekzFVF4yjRgrQvTG1MTOJ3yQgvTteKAcO7DSZI92+u/yZw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-Zihaib
+<div id="logArea" style="white-space:pre-wrap"></div>
 </body>
+
+<script>
+    var logArea = document.getElementById("logArea");
+ //render on initial page load
+
+
+ fetch('/logs/lines')
+ .then(response => response.json())
+ .then(data=>{
+    logArea.textContent += data + "\n";
+ });
+
+
+
+ //render on live updates
+
+    const socket = new SockJS('/wss-logs');
+    const stompClient = Stomp.over(socket);
+
+    stompClient.connect({},function(){
+        stompClient.subscribe('/topic/logs', function(msg){
+                logArea.textContent += msg.body + "\n";
+        });
+    });
+
+
+</script>
 </html>
