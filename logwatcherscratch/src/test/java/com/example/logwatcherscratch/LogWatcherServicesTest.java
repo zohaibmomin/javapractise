@@ -34,7 +34,6 @@ public class LogWatcherServicesTest {
                 "line1\nline2\nline3\nline4\nline5\n" +
                         "line6\nline7\nline8\nline9\nline10\nline11"
         ).getBytes(StandardCharsets.UTF_8));
-
         // Initialize LogWatcherServices with the test file and a mocked messaging template
         service = new LogWatcherServices(TEST_FILE, Mockito.mock(SimpMessagingTemplate.class));
     }
